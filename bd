@@ -1,0 +1,223 @@
+-- phpMyAdmin SQL Dump
+-- version 3.3.9
+-- http://www.phpmyadmin.net
+--
+-- Servidor: localhost
+-- Tempo de Geração: Jul 04, 2013 as 04:47 PM
+-- Versão do Servidor: 5.5.8
+-- Versão do PHP: 5.3.5
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Banco de Dados: `mgerenciador`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `cliente`
+--
+
+CREATE TABLE IF NOT EXISTS `cliente` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) NOT NULL,
+  `cpf` varchar(20) DEFAULT NULL,
+  `rg` varchar(20) DEFAULT NULL,
+  `telefone` varchar(20) DEFAULT NULL,
+  `email` varchar(40) DEFAULT NULL,
+  `sexo` varchar(10) DEFAULT NULL,
+  `data_cadastro` date NOT NULL,
+  `observacao` varchar(300) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Extraindo dados da tabela `cliente`
+--
+
+INSERT INTO `cliente` (`id`, `nome`, `cpf`, `rg`, `telefone`, `email`, `sexo`, `data_cadastro`, `observacao`) VALUES
+(1, 'henrique', '232131221', '3123213', '33332222', 'bnesfuiedfiun@mnaod.com', 'Masculino', '2013-07-01', '');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `fornecedor`
+--
+
+CREATE TABLE IF NOT EXISTS `fornecedor` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(30) NOT NULL,
+  `email` varchar(40) DEFAULT NULL,
+  `linha_produto` varchar(50) DEFAULT NULL,
+  `telefone` varchar(30) DEFAULT NULL,
+  `cnpj` varchar(30) DEFAULT NULL,
+  `observacao` varchar(200) DEFAULT NULL,
+  KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Extraindo dados da tabela `fornecedor`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `funcionario`
+--
+
+CREATE TABLE IF NOT EXISTS `funcionario` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) DEFAULT NULL,
+  `rg` varchar(20) DEFAULT NULL,
+  `cpf` varchar(30) DEFAULT NULL,
+  `carteira_trabalho` varchar(30) DEFAULT NULL,
+  `salario` varchar(10) DEFAULT NULL,
+  `cargo` varchar(20) DEFAULT NULL,
+  `senha` varchar(30) DEFAULT NULL,
+  `observacao` varchar(300) DEFAULT NULL,
+  `sexo` varchar(20) DEFAULT NULL,
+  `telefone` varchar(20) DEFAULT NULL,
+  `data_cadastro` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
+
+--
+-- Extraindo dados da tabela `funcionario`
+--
+
+INSERT INTO `funcionario` (`id`, `nome`, `rg`, `cpf`, `carteira_trabalho`, `salario`, `cargo`, `senha`, `observacao`, `sexo`, `telefone`, `data_cadastro`) VALUES
+(15, 'henriquedwdw', '23323', '423412', '344444', '2313', 'Vendedor', '432424', '', 'Masculino', '42343242', '2013-05-28'),
+(16, 'gustavoo', 'e321313', '323231321', '324324', '344324', 'Vendedor', '32321321', '', 'Masculino', '3213213', '2013-05-29'),
+(17, 'maicon', '32213', '32321321', '23421321', '32131', 'Vendedor', '4323', '', 'Masculino', '2321321', '2013-05-29'),
+(18, 'paulo', '3123213', '2321321', '3412123', '222', 'Vendedor', '2321321', '', 'Masculino', '2e33212', '2013-05-29'),
+(19, 'manoel', '2222', '2222', '3434', '300', 'Mecânico', '2222', '', 'Masculino', '2222', '2013-05-29'),
+(20, 'boo', '232131', '323232', '321321', '32321', 'Gerente', '2321', '', 'Masculino', '231312', '2013-05-29'),
+(21, 'roberto', '321321', '233', '32113', '232133', 'Gerente', '321321', '', 'Masculino', '3211', '2013-05-29'),
+(22, 'rayner', 'e232321', '2321321', '213213', '2333', 'Vendedor', '321321', '', 'Masculino', '21321', '2013-05-29');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `login`
+--
+
+CREATE TABLE IF NOT EXISTS `login` (
+  `usuario` varchar(100) NOT NULL,
+  `senha` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `login`
+--
+
+INSERT INTO `login` (`usuario`, `senha`) VALUES
+('adm', '123');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `produot`
+--
+
+CREATE TABLE IF NOT EXISTS `produot` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(30) NOT NULL,
+  `marca` varchar(30) NOT NULL,
+  `fabricante` varchar(40) NOT NULL,
+  `grupo` varchar(15) NOT NULL,
+  `preco` double NOT NULL,
+  `custo` double NOT NULL,
+  `quantidade_minima` int(11) NOT NULL,
+  `quantidade_maxima` int(11) NOT NULL,
+  `quantidade_total` int(11) NOT NULL,
+  `descricao` varchar(200) NOT NULL,
+  `data_cadastro` date NOT NULL,
+  KEY `id` (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Extraindo dados da tabela `produot`
+--
+
+INSERT INTO `produot` (`id`, `nome`, `marca`, `fabricante`, `grupo`, `preco`, `custo`, `quantidade_minima`, `quantidade_maxima`, `quantidade_total`, `descricao`, `data_cadastro`) VALUES
+(2, 'shapesss', 'session', 'session', 'Shape', 289, 200, 5, 30, 20, '', '2013-05-22'),
+(3, 'truckk inverted', 'session', 'session', 'Truck', 289, 200, 5, 85, 20, '', '2013-05-22');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `ultimo_usuario`
+--
+
+CREATE TABLE IF NOT EXISTS `ultimo_usuario` (
+  `usuario` varchar(11) DEFAULT NULL,
+  `lembrar_usuario` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `ultimo_usuario`
+--
+
+INSERT INTO `ultimo_usuario` (`usuario`, `lembrar_usuario`) VALUES
+('adm', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `venda`
+--
+
+CREATE TABLE IF NOT EXISTS `venda` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cliente` varchar(20) DEFAULT NULL,
+  `qtde_produtos` int(11) DEFAULT NULL,
+  `tipo_pagamento` varchar(30) DEFAULT NULL,
+  `total_venda` double DEFAULT NULL,
+  `n_parcelas` int(11) DEFAULT NULL,
+  `total_parcelas` double DEFAULT NULL,
+  `juros` int(11) DEFAULT NULL,
+  `valor_entrada` double DEFAULT NULL,
+  `total_venda_parcelada` double DEFAULT NULL,
+  `desconto` int(11) DEFAULT NULL,
+  `total_pagar` double DEFAULT NULL,
+  `total_pago` double DEFAULT NULL,
+  `data_venda` date DEFAULT NULL,
+  `hora` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Extraindo dados da tabela `venda`
+--
+
+INSERT INTO `venda` (`id`, `cliente`, `qtde_produtos`, `tipo_pagamento`, `total_venda`, `n_parcelas`, `total_parcelas`, `juros`, `valor_entrada`, `total_venda_parcelada`, `desconto`, `total_pagar`, `total_pago`, `data_venda`, `hora`) VALUES
+(2, 'henrique', 3, 'A vista', 578, NULL, NULL, NULL, NULL, NULL, 20, 462.4, 500, '2013-07-01', '14:56:49');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `venda_item`
+--
+
+CREATE TABLE IF NOT EXISTS `venda_item` (
+  `id_venda` int(11) NOT NULL,
+  `produto` varchar(30) NOT NULL,
+  `quantidade` int(11) NOT NULL,
+  `preco` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `venda_item`
+--
+
+INSERT INTO `venda_item` (`id_venda`, `produto`, `quantidade`, `preco`) VALUES
+(2, 'shapesss', 1, 289),
+(2, 'truckk inverted', 1, 289);
